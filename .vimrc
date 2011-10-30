@@ -152,6 +152,9 @@ augroup vimrc_filetype
 	autocmd FileType    xdefaults   map - :s/^/!/<CR>:nohlsearch<CR>
 	autocmd FileType    lisp,scheme map - :s/^/;/<CR>:nohlsearch<CR>
 	autocmd FileType    scheme,lisp set lisp
+        
+        " XML/HTML close tags
+        au Filetype html,xml,xsl,php source ~/.vim/scripts/closetag.vim
 
 	" Automatically chmod +x Shell and Perl scripts
 	autocmd BufWritePost   *.sh     !chmod +x %
