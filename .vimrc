@@ -129,7 +129,7 @@ inoremap {} {}
 inoremap <F12> :w !detex \| wc -w<CR>
 
 " Filetype-specific autocommands.
-" The different FileTypes can be found in /usr/share/vim/vim70/filetype.vim
+" The different FileTypes can be found in /usr/share/vim/vimcurrent/filetype.vim
 filetype on         " detect filetypes
 augroup vimrc_filetype
 	autocmd!
@@ -152,17 +152,16 @@ augroup vimrc_filetype
 	autocmd FileType    xdefaults   map - :s/^/!/<CR>:nohlsearch<CR>
 	autocmd FileType    lisp,scheme map - :s/^/;/<CR>:nohlsearch<CR>
 	autocmd FileType    scheme,lisp set lisp
+        " HTML/XML auto close
+        autocmd FileType    html,xml,xsl,php source ~/.vim/scripts/closetag.vim
         
-        " XML/HTML close tags
-        au FileType html,xml,xsl,php source ~/.vim/scripts/closetag.vim
-
 	" Automatically chmod +x Shell and Perl scripts
 	autocmd BufWritePost   *.sh     !chmod +x %
 	autocmd BufWritePost   *.pl     !chmod +x %
 	" Automatically source
 	autocmd BufWritePost   ~/.vimrc  :source %
 	autocmd BufWritePost   ~/.bashrc :!source %
-augroup end
+augroup END
 
 " Uncomment lines with _ (one rule for all languages)
 map _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
