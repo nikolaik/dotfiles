@@ -11,3 +11,6 @@ alias l='ls -CF'
 
 # nice gitlog
 alias glg="git log --graph --pretty=format:'%Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+
+# historien om passordet til martin
+alias figlet_gay='figlet --font smmono12 --gay'
